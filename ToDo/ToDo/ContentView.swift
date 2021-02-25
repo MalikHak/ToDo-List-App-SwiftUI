@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var manageObjectContext;
+    
     @State private var showingAddTodoView:Bool = false
     var body: some View {
        
@@ -24,7 +26,7 @@ self.showingAddTodoView.toggle()                                }){
  Image(systemName: "plus")
  }
      .sheet(isPresented: $showingAddTodoView){
-       AddToDoView()
+        AddToDoView().environment(\.managedObjectContext,self.manageObjectContext)
                                 }
             )
         }

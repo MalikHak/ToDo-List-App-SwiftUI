@@ -9,7 +9,12 @@ import SwiftUI
 
 struct AddToDoView: View {
  
+    @Environment (\.managedObjectContext) var managedObjectContext
     @Environment (\.presentationMode) var presentationMode
+    
+    @State  private var errorShowing:Bool=false
+    @State private var errorTitle:String = ""
+    @State private var errorMessage:String = ""
     
     @State private var name:String = ""
     @State private var priority:String = "Normal"
@@ -34,7 +39,36 @@ struct AddToDoView: View {
                     //Button View
                     
                     Button(action:{
-                        print("New ITEM SAVED")
+                print("ssddfff")
+                        
+                  
+                        if self.name != "" {
+                            let todo = TodoTask(context:self.managedObjectContext)
+
+                                                  todo.name = self.name
+                                                  todo.priority = self.priority
+
+                                                  do{
+                                                      try self.managedObjectContext.save()
+
+                                                    print("New todo: \(todo.name ?? ""), priority:\(todo.priority ?? "")")
+
+                                                  }catch{
+                                                   print(error)
+                                                  }
+
+                        }else{
+                            
+                            self.errorShowing = true
+                            self.errorMessage = "Please enter a task name"
+                            self.errorTitle = "Invalid Name"
+                            return
+                        }
+
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                        
+                        
                     }){
                        
                         Text("Save")
@@ -52,7 +86,9 @@ struct AddToDoView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }){
                 Image(systemName: "xmark")
-            })
+            }).alert(isPresented: $errorShowing){
+                Alert(title:Text(errorTitle),message:Text(errorMessage),dismissButton:.default(Text("OK")))
+            }
             
         }
         
