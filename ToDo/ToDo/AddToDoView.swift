@@ -24,9 +24,12 @@ struct AddToDoView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Form{
+                VStack(alignment: .leading, spacing: 20){
                     
-                    TextField("Todo", text:$name)
+                    TextField("Todo", text:$name).padding()
+                        .background(Color(UIColor.tertiarySystemFill))
+                        .cornerRadius(9.0)
+                        .font(.system(size:24,weight:.bold,design:.default))
                     
                     Picker("Priority",selection:$priority){
                         
@@ -72,11 +75,20 @@ struct AddToDoView: View {
                     }){
                        
                         Text("Save")
+                        
+                            .font(.system(size: 24,weight:.bold,design:.default)).padding()
+                            .frame(minWidth:0,maxWidth: .infinity)
+                            .background(Color.blue)
+
+                            .cornerRadius(9.0)
+                            .foregroundColor(Color.white)
+
                     }
                
                 
                 
-                }
+                }.padding(.horizontal)
+                .padding(.vertical,30)
                 Spacer()
                
             }
