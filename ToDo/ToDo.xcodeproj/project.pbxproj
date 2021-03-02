@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C0937BF225E6756A003F2AE0 /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0937BF125E6756A003F2AE0 /* AddToDoView.swift */; };
+		C0CBB18D25EE2022001523F2 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CBB18C25EE2022001523F2 /* EmptyListView.swift */; };
 		C0D9A50F25E62B670079072F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D9A50E25E62B670079072F /* AppDelegate.swift */; };
 		C0D9A51125E62B670079072F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D9A51025E62B670079072F /* SceneDelegate.swift */; };
 		C0D9A51325E62B670079072F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D9A51225E62B670079072F /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		C0937BF125E6756A003F2AE0 /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
+		C0CBB18C25EE2022001523F2 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		C0D9A50B25E62B670079072F /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D9A50E25E62B670079072F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0D9A51025E62B670079072F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		C0D9A50D25E62B670079072F /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				C0CBB18C25EE2022001523F2 /* EmptyListView.swift */,
 				C0937BF125E6756A003F2AE0 /* AddToDoView.swift */,
 				C0D9A50E25E62B670079072F /* AppDelegate.swift */,
 				C0D9A51025E62B670079072F /* SceneDelegate.swift */,
@@ -153,6 +156,7 @@
 			files = (
 				C0D9A50F25E62B670079072F /* AppDelegate.swift in Sources */,
 				C0937BF225E6756A003F2AE0 /* AddToDoView.swift in Sources */,
+				C0CBB18D25EE2022001523F2 /* EmptyListView.swift in Sources */,
 				C0D9A51125E62B670079072F /* SceneDelegate.swift in Sources */,
 				C0D9A51325E62B670079072F /* ContentView.swift in Sources */,
 				C0D9A51625E62B670079072F /* ToDo.xcdatamodeld in Sources */,
