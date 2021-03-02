@@ -51,20 +51,20 @@ struct AddToDoView: View {
                            
                          let todo = TodoTask(context:self.managedObjectContext)
 
-                                                  todo.name = self.name
-                                                  todo.priority = self.priority
+                          todo.name = self.name
+                          todo.priority = self.priority
 
-                                                  do{
-                                                      try self.managedObjectContext.save()
+                          do{
+                          try self.managedObjectContext.save()
+                                                    
+                           print("New todo: \(todo.name ?? ""), priority:\(todo.priority ?? "")")
 
-                                                    print("New todo: \(todo.name ?? ""), priority:\(todo.priority ?? "")")
-
-                                                  }catch{
-                                                   print(error)
-                                                  }
+                           }catch{
+                            print(error)
+                            }
 
                         }else{
-                            
+                 
                             self.errorShowing = true
                             self.errorMessage = "Please enter a task name"
                             self.errorTitle = "Invalid Name"
@@ -72,9 +72,7 @@ struct AddToDoView: View {
                         }
 
                         self.presentationMode.wrappedValue.dismiss()
-                        
-                        
-                        
+                          
                     }){
                        
                         Text("Save")
@@ -88,8 +86,6 @@ struct AddToDoView: View {
 
                     }
                
-                
-                
                 }.padding(.horizontal)
                 .padding(.vertical,30)
                 Spacer()
@@ -105,9 +101,7 @@ struct AddToDoView: View {
                 Alert(title:Text(errorTitle),message:Text(errorMessage),dismissButton:.default(Text("OK")))
             }
             
-        }
-        
-        
+        }    
     }
 }
 
