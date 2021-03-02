@@ -22,7 +22,9 @@ struct AddToDoView: View {
     let priorities = ["high","Normal","low"]
     
     var body: some View {
+     
         NavigationView{
+         
             VStack{
                 VStack(alignment: .leading, spacing: 20){
                     
@@ -46,7 +48,8 @@ struct AddToDoView: View {
                         
                   
                         if self.name != "" {
-                            let todo = TodoTask(context:self.managedObjectContext)
+                           
+                         let todo = TodoTask(context:self.managedObjectContext)
 
                                                   todo.name = self.name
                                                   todo.priority = self.priority
