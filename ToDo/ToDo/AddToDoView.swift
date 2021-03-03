@@ -22,25 +22,22 @@ struct AddToDoView: View {
     let priorities = ["high","Normal","low"]
     
     var body: some View {
-     
         NavigationView{
-         
             VStack{
                 VStack(alignment: .leading, spacing: 20){
                     
-                    TextField("Todo", text:$name).padding()
+                        TextField("Todo", text:$name).padding()
                         .background(Color(UIColor.tertiarySystemFill))
                         .cornerRadius(9.0)
                         .font(.system(size:24,weight:.bold,design:.default))
                     
-                    Picker("Priority",selection:$priority){
+                         Picker("Priority",selection:$priority){
                         
                         ForEach(priorities, id:\.self){
                             Text($0)
-                        }
+                          }
                     }.pickerStyle(SegmentedPickerStyle())
-                    
-                   
+
                     //Button View
                     
                     Button(action:{
@@ -48,23 +45,22 @@ struct AddToDoView: View {
                         
                   
                         if self.name != "" {
-                           
-                         let todo = TodoTask(context:self.managedObjectContext)
+                            let todo = TodoTask(context:self.managedObjectContext)
 
-                          todo.name = self.name
-                          todo.priority = self.priority
-
-                          do{
-                          try self.managedObjectContext.save()
-                                                    
-                           print("New todo: \(todo.name ?? ""), priority:\(todo.priority ?? "")")
-
-                           }catch{
-                            print(error)
-                            }
+                                 todo.name = self.name
+                                 todo.priority = self.priority
+                                  do{
+                     try
+                        self.managedObjectContext.save()
+                         print("New todo: \(todo.name ?? ""), priority:\(todo.priority ?? "")")
+                              
+                                  }catch
+                                  {
+                    print(error)
+                    }
 
                         }else{
-                 
+                            
                             self.errorShowing = true
                             self.errorMessage = "Please enter a task name"
                             self.errorTitle = "Invalid Name"
@@ -72,7 +68,9 @@ struct AddToDoView: View {
                         }
 
                         self.presentationMode.wrappedValue.dismiss()
-                          
+                        
+                        
+                        
                     }){
                        
                         Text("Save")
@@ -86,6 +84,8 @@ struct AddToDoView: View {
 
                     }
                
+                
+                
                 }.padding(.horizontal)
                 .padding(.vertical,30)
                 Spacer()
@@ -101,7 +101,9 @@ struct AddToDoView: View {
                 Alert(title:Text(errorTitle),message:Text(errorMessage),dismissButton:.default(Text("OK")))
             }
             
-        }    
+        }
+        
+        
     }
 }
 
