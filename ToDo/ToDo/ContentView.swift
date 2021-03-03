@@ -65,6 +65,10 @@ struct ContentView: View {
                print(error)
             }
         }
+        sheet(isPresented: $showingAddTodoView){
+           
+             AddToDoView().environment(\.managedObjectContext,self.manageObjectContext)
+                                    }
     }
 }
 
